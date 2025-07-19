@@ -3,6 +3,8 @@
   import Dropdown from "../lib/Dropdown.svelte"
   import LinkField from "../lib/LinkField.svelte"
   import SmallField from "../lib/SmallField.svelte"
+  import { postJob } from "../api/post.ts"
+  import type { JobRequest } from "../api/post.ts";
 
   // dropdown options
   const volumeOptions = ["0.0", "0.5", "1.0", "1.5", "2"];
@@ -21,35 +23,32 @@
   
   async function submit_job() {
     status = "submitting"
-		const data = {
-			url,
-			format,
-			volumeScale,
-			startTime,
-			endTime
-		};
-    const res = await fetch('http://localhost:8080/videos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });     
-    const json = await res.json(); 
-    if (!res.ok) {
-      status = json.error || "unknown error";
+
+    const data: JobRequest = {
+      url,
+      format,
+      volumeScale,
+      startTime,
+      endTime
+    };
+
+    const res = await postJob(data);
+
+    if (res.error) {
+      status = res.error;
       return;
     }
-    status = json.message;
-    jobId = json.id;
+
+    status = res.message || "job submitted";
+    jobId = res.id || '';
   }
 </script>
 
 
 <form on:submit|preventDefault={submit_job}>
-  <LinkField bind:url={url} placeholder="input link here"/>
-  <SmallField bind:input={startTime} placeholder="start time"/>
-  <SmallField bind:input={endTime} placeholder="end time"/>
+  <LinkField bind:value={url} placeholder="input link here"/>
+  <SmallField bind:value={startTime} placeholder="start time"/>
+  <SmallField bind:value={endTime} placeholder="end time"/>
   <Dropdown
     label="volume scale"
     options={volumeOptions}
@@ -60,8 +59,11 @@
     options={formatOptions}
     bind:selected={format}
   />
+  <button type="submit" style="display: none;"></button>
 </form>
 
+<p>status: {status}</p>
+<p>value: {url}, {startTime} - {endTime}, {format}</p>
 
 
 

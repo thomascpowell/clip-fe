@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let url: string = '';
+  export let value: string = '';
   export let placeholder: string = '';
   import Icon from "../icons/LinkIcon.svelte"
 </script>
@@ -8,7 +8,7 @@
   <Icon/>
   <input
     placeholder={placeholder}
-    bind:value={url}
+    bind:value
   />
 </div>
 

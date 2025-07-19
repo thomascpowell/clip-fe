@@ -1,11 +1,11 @@
 <script lang="ts">
-  export let input: string = '';
+  export let value: string = '';
   export let placeholder: string = '';
 </script>
 
 <input
   placeholder={placeholder}
-  bind:value={input}
+  bind:value
 />
 
 <style>
