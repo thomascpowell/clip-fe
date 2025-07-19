@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  vertical-align: baseline;
+}
+
+:root {
+  --bg: #111110;
+  --text: #eeeeec;
+  --text2: #b5b3ad;
+}
+
+body {
+  font-family: "Inter"
+}
+
+h1, h2 {
+  font-weight: 600
+}
+p, a {
+  font-weight: 300
+}
