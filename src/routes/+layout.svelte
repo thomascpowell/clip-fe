@@ -2,4 +2,7 @@
   import '../app.css'
 </script>
 
-<slot />
+<div class="inner">
+  <slot />
+</div>
+

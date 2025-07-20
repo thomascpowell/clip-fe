@@ -12,13 +12,30 @@
 }
 
 :root {
-  --bg: #111110;
-  --text: #eeeeec;
-  --text2: #b5b3ad;
+  --bg: #111111;
+  --bg2: #2A2A2A;
+  --text: #EEEEEE;
+  --text2: #B4B4B4;
+  --border: #484848 
 }
 
 body {
-  font-family: "Inter"
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter";
+  height: 100vh;
+  width: 100vw;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
 }
 
 h1, h2 {

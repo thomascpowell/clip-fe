@@ -1,10 +1,13 @@
 <script lang="ts">
+
   // imports
   import Dropdown from "../lib/Dropdown.svelte"
   import LinkField from "../lib/LinkField.svelte"
   import SmallField from "../lib/SmallField.svelte"
+  import Toast from "../lib/Toast.svelte"
+
   import { postJob } from "../api/post.ts"
-  import type { JobRequest } from "../api/post.ts";
+  import type { JobRequest, JobResponse } from "../api/post.ts";
 
   // dropdown options
   const volumeOptions = ["0.0", "0.5", "1.0", "1.5", "2"];
@@ -18,12 +21,11 @@
 	let endTime = '';
 
   // status info
-	let status = ''; 
 	let jobId = '';
-  
+  let latestRes: JobResponse = {}
+
   async function submit_job() {
     status = "submitting"
-
     const data: JobRequest = {
       url,
       format,
@@ -31,20 +33,20 @@
       startTime,
       endTime
     };
-
     const res = await postJob(data);
-    console.log(res);
+    // console.log(res);
+    // if (res.error) {
+    //   status = res.error;
+    //   return;
+    // }
+    // status = res.message || "job submitted";
 
-    if (res.error) {
-      status = res.error;
-      return;
-    }
-
-    status = res.message || "job submitted";
+    latestRes = res
     jobId = res.id || '';
   }
 </script>
 
+<Toast res=latestRes />
 
 <form on:submit|preventDefault={submit_job}>
   <LinkField bind:value={url} placeholder="input link here"/>
@@ -63,8 +65,7 @@
   <button type="submit" style="display: none;"></button>
 </form>
 
-<p>status: {status}</p>
-<p>value: {url}, {startTime} - {endTime}, {format}</p>
+<p>values: {url}, {startTime} - {endTime}, {format}</p>
 
 
 
