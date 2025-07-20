@@ -33,6 +33,7 @@
     };
 
     const res = await postJob(data);
+    console.log(res);
 
     if (res.error) {
       status = res.error;
