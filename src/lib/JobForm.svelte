@@ -25,7 +25,6 @@
   let latestRes: JobResponse = {}
 
   async function submit_job() {
-    status = "submitting"
     const data: JobRequest = {
       url,
       format,
@@ -33,20 +32,14 @@
       startTime,
       endTime
     };
-    const res = await postJob(data);
-    // console.log(res);
-    // if (res.error) {
-    //   status = res.error;
-    //   return;
-    // }
-    // status = res.message || "job submitted";
-
+    const res: JobResponse = await postJob(data);
+    console.log(res)
     latestRes = res
     jobId = res.id || '';
   }
 </script>
 
-<Toast res=latestRes />
+<Toast res={latestRes} />
 
 <form on:submit|preventDefault={submit_job}>
   <LinkField bind:value={url} placeholder="input link here"/>
