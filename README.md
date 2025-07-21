@@ -1,4 +1,4 @@
-## A website for downloading videos.
+## A tool for downloading videos from the internet.
 
 ### Key Features:
 - Accepts URLs and returns downloadable media
