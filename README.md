@@ -5,15 +5,15 @@
 - Can convert to several formats (including audio only)
 - Allows trimming (start/end) and adjusting volume
 
-### Frontend: (This repo)
+### Frontend:
 User-friendly UI layer written in TypeScript with Svelte.
 - TypeScript: REST API handling and interactivity
 - SvelteKit: Metaframework
 - Custom CSS: Clean and minimal styling
 - Radix UI: Colors and icons
 
-### Backend: ([thomascpowell/video-api](https://github.com/thomascpowell/video-api))
-Concurrent media processing pipeline written in Go.
+### Backend: 
+Concurrent media processing pipeline written in Go. ([video-api](https://github.com/thomascpowell/video-api))
 - Gin: REST API framework with CORS
 - Go: Queue-based job processing
 - Redis: Job tracking and state storage
