@@ -13,7 +13,7 @@ User-friendly UI layer written in TypeScript with Svelte.
 - Radix UI: Colors and icons
 
 ### Backend: 
-Concurrent media processing pipeline written in Go. ([video-api](https://github.com/thomascpowell/video-api))
+Concurrent media processing pipeline written in Go. ([clip-api](https://github.com/thomascpowell/clip-api))
 - Gin: REST API framework with CORS
 - Go: Queue-based job processing
 - Redis: Job tracking and state storage
