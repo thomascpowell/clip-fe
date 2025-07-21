@@ -49,7 +49,7 @@
 
   <LinkField bind:value={url} placeholder="input link here"/>
   <div class="options">
-    <button class="optionsButton" on:click={() => showOptions = !showOptions}>{showOptions ? "show less" : "show more"}<ChevronRight/></button>
+    <button class="optionsButton" type="button" on:click={() => showOptions = !showOptions}>{showOptions ? "show less" : "show more"}<ChevronRight/></button>
     {#if showOptions}
       <SmallField bind:value={startTime} placeholder="start time"/>
       <SmallField bind:value={endTime} placeholder="end time"/>
