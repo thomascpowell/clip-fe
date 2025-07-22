@@ -11,6 +11,10 @@
   vertical-align: baseline;
 }
 
+input:placeholder {
+  color: var(--text2);
+}
+
 :root {
   --bg: #111111;
   --bg2: #2A2A2A;
@@ -31,6 +35,8 @@ body {
 }
 
 .inner {
+  width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 1em;

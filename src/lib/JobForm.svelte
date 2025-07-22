@@ -3,9 +3,8 @@
   import Dropdown from "../lib/Dropdown.svelte"
   import LinkField from "../lib/LinkField.svelte"
   import SmallField from "../lib/SmallField.svelte"
+  import OptionsButton from "../lib/OptionsButton.svelte"
   import Toast from "../lib/Toast.svelte"
-  import ChevronRight from "../icons/ChevronRight.svelte"
-  import ChevronLeft from "../icons/ChevronLeft.svelte"
 
   import { postJob } from "../api/post.ts"
   import type { JobRequest, JobResponse } from "../api/post.ts";
@@ -43,18 +42,17 @@
   }
 </script>
 
+
 <Toast res={latestRes} />
-
 <form on:submit|preventDefault={submit_job}>
-
-  <LinkField bind:value={url} placeholder="input link here"/>
+  <LinkField bind:value={url} placeholder="URL"/>
   <div class="options">
-    <button class="optionsButton" type="button" on:click={() => showOptions = !showOptions}>{showOptions ? "show less" : "show more"}<ChevronRight/></button>
+    <OptionsButton bind:showOptions={showOptions} />
     {#if showOptions}
       <SmallField bind:value={startTime} placeholder="start time"/>
       <SmallField bind:value={endTime} placeholder="end time"/>
       <Dropdown
-        label="volume scale"
+        label="volume"
         options={volumeOptions}
         bind:selected={volumeScale}
       />
@@ -68,28 +66,19 @@
   <button type="submit" style="display: none"></button>
 </form>
 
-<p>values: {url}, {startTime} - {endTime}, {format}</p>
 
 <style>
-
   form {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    gap: 1em;
+    width: clamp(0em, 100%, 50em);
   }
-
   .options {
-    gap: 1em;
-    display: flex;
-    white-space: nowrap;
-  }
-
-  .optionsButton {
-    color: var(--text2);
-    display: flex;
-    justify-content: center;
+    height: 4em;
+    display: grid;
+    justify-content: start;
     align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(0, max-content));
+    gap: 1em;
+    white-space: nowrap;
   }
 </style>
 

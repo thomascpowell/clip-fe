@@ -3,10 +3,24 @@
   export let placeholder: string = '';
 </script>
 
+
 <input
   placeholder={placeholder}
   bind:value
 />
 
+
 <style>
+  input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg2);
+    border: .1em solid var(--border);
+    display: flex;
+    gap: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    align-items: center;
+  }
 </style>
