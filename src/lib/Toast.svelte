@@ -19,6 +19,7 @@
   $: message = res.message || "" + res.error || ""
 </script>
 
+
 {#if show}
   <div>
     <Icon style="transform: scale(1.5)" />
@@ -26,11 +27,12 @@
   </div>
 {/if}
 
+
 <style>
   div {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 1em;
+    right: 1em;
     background-color: var(--bg2);
     display: flex;
     justify-content: center;

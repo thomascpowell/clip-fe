@@ -5,7 +5,7 @@
 </script>
 
 <div>
-  <Icon/>
+  <Icon style="transform: scale(1.3)"/>
   <input
     placeholder={placeholder}
     bind:value
@@ -14,12 +14,14 @@
 
 <style>
   div {
+    width: 100%;
     display: flex;
     gap: 0.5em;
     align-items: center;
     background-color: var(--bg2);
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 1em;
+    border: .1em solid var(--border);
   }
   div:focus-within {
     border-color: Highlight;
