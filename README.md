@@ -17,4 +17,4 @@
 - Go: Queue-based job processing
 - Redis: Job tracking and state storage
 - Docker: Containerization
-
+- Nginx: Reverse proxy

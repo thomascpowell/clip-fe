@@ -16,7 +16,7 @@ export async function postJob(data: JobRequest): Promise<JobResponse> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
   try {
-    const res = await fetch("http://localhost:8080/videos", {
+    const res = await fetch("http://localhost/videos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
