@@ -1,16 +1,4 @@
-export interface JobRequest {
-  url: string;
-  format: string;
-  volumeScale: string;
-  startTime: string;
-  endTime: string;
-}
-
-export interface JobResponse {
-  id?: string;
-  message?: string;
-  error?: string;
-}
+import type { JobRequest, JobResponse} from "./types";
 
 export async function postJob(data: JobRequest): Promise<JobResponse> {
   const controller = new AbortController();
