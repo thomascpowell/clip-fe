@@ -4,13 +4,17 @@
 </script>
 
 
-<input
-  placeholder={placeholder}
-  bind:value
-/>
-
+<div>
+  <input
+    placeholder={placeholder}
+    bind:value
+  />
+</div>
 
 <style>
+  div {
+    min-width: 8em;
+  }
   input {
     display: flex;
     align-items: center;

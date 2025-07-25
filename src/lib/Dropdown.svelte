@@ -17,6 +17,7 @@
 
 <style>
   div {
+    min-width: 8em;
     background-color: var(--bg2);
     border: .1em solid var(--border);
     color: var(--text2);
@@ -25,5 +26,6 @@
     padding: 0.5em;
     border-radius: 0.5em;
     align-items: center;
+    justify-content: space-between;
   }
 </style>

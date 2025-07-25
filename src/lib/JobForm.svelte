@@ -51,19 +51,23 @@
       return
     }
     downloadUrl = statusRes.url
+    status.set({ message: "downloading"});
     const a = document.createElement("a");
     a.href = "http://" + downloadUrl;
     a.download = "";
     a.click();
+    loading.set(false);
+    downloadUrl = ''
+    showOptions = false
   }
 </script>
 
 
 <form on:submit|preventDefault={handleSubmit}>
   <LinkField bind:value={url} placeholder="URL"/>
-  <div class="options">
-    <OptionsButton bind:showOptions={showOptions} />
-    {#if showOptions}
+  <OptionsButton bind:showOptions={showOptions} />
+  {#if showOptions}
+    <div class="options">
       <SmallField bind:value={startTime} placeholder="start time"/>
       <SmallField bind:value={endTime} placeholder="end time"/>
       <Dropdown
@@ -76,8 +80,8 @@
         options={formatOptions}
         bind:selected={format}
       />
-    {/if}
-  </div>
+    </div>
+  {/if}
   <button type="submit" style="display: none"></button>
 </form>
 
@@ -85,13 +89,15 @@
 <style>
   form {
     width: clamp(0em, 100%, 50em);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-wrap: nowrap;
   }
   .options {
-    height: 4em;
     display: grid;
-    justify-content: start;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(0, max-content));
     gap: 1em;
     white-space: nowrap;
   }

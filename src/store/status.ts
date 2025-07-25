@@ -1,8 +1,4 @@
 import { writable } from 'svelte/store';
-
-export type Status = {
-  message?: string;
-  error?: string;
-};
+import type { Status } from '../api/types.ts'
 
 export const status = writable<Status>({});

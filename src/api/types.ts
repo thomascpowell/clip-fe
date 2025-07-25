@@ -21,3 +21,9 @@ export interface JobStatus {
   error?: string;
 }
 
+// status type used by toast
+export type Status = {
+  message?: string;
+  error?: string;
+};
+

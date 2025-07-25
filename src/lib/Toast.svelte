@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { JobResponse } from "../api/post.ts";
+  import type { Status } from "../api/types.ts";
   import CrossIcon from "../icons/CrossIcon.svelte"
   import CheckIcon from "../icons/CheckIcon.svelte"
 
-  export let res: JobResponse = {} as JobResponse 
+  export let res: Status = {} 
   let show = false
-  let timer = 5000
+  let timer = 4000
   let timeoutHandle: number | undefined = undefined;
 
   $: if (res.message || res.error) {
@@ -16,7 +16,7 @@
     }, timer);  
   }
   $: Icon = res.error ? CrossIcon : CheckIcon;
-  $: message = res.message || "" + res.error || ""
+  $: message = res.message || res.error || "";
 </script>
 
 
@@ -40,6 +40,7 @@
     gap: 0.5em;
     padding: 1em; 
     border-radius: 0.5em;
+    border: .1em solid var(--border);
   }
   p {
     width: 100%;
