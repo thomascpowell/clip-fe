@@ -28,6 +28,10 @@
   }
   a, button {
     color: var(--text2);
+    cursor: pointer;
     text-decoration: none;
+  }
+  a:hover, button:hover {
+    color: var(--text);
   }
 </style>
