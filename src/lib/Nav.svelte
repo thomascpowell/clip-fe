@@ -6,7 +6,7 @@
   <p>[clip]</p>
   <span>
     <button on:click={() => modal.update(value => !value)}>[settings]</button>
-    <a href="https://github.com/thomascpowell/clip">[repo]</a>
+    <a href="https://github.com/thomascpowell/clip-fe">[repo]</a>
     <a href="https://thomascpowell.com">[web]</a>
   </span>
 </div>
