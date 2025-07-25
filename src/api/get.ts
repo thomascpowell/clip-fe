@@ -1,11 +1,14 @@
 import type { JobStatus } from "./types";
+import { backend } from "../store/backend"
+import { get } from "svelte/store";
 
 async function getStatus(id: string): Promise<JobStatus> {
   let res: any;
+  const url = get(backend); 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
   try {
-    res = await fetch(`http://localhost/status/${id}`, {
+    res = await fetch(`//${url}/status/${id}`, {
       method: "GET",
       signal: controller.signal
     });

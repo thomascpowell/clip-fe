@@ -1,10 +1,13 @@
 import type { JobRequest, JobResponse} from "./types";
+import { backend } from "../store/backend"
+import { get } from "svelte/store";
 
 export async function postJob(data: JobRequest): Promise<JobResponse> {
   const controller = new AbortController();
+  const url = get(backend); 
   const timeout = setTimeout(() => controller.abort(), 5000);
   try {
-    const res = await fetch("http://localhost/videos", {
+    const res = await fetch(`//${url}/videos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
