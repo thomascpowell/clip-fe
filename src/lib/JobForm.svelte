@@ -67,7 +67,7 @@
   {#if showOptions}
     <div class="options">
       <SmallField bind:value={startTime} placeholder="start time"/>
-      <SmallField bind:value={endTime} placeholder="end time"/>job
+      <SmallField bind:value={endTime} placeholder="end time"/>
       <Dropdown
         label="volume"
         options={volumeOptions}
