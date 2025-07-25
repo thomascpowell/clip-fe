@@ -1,8 +1,8 @@
 <div>
   <p>[clip]</p>
   <span>
-    <a href="https://thomascpowell.com">[web]</a>
     <a href="https://github.com/thomascpowell/clip">[repo]</a>
+    <a href="https://thomascpowell.com">[web]</a>
   </span>
 </div>
 
