@@ -2,7 +2,8 @@
   import SmallField from "../lib/SmallField.svelte"
   import { backend } from '../store/backend.ts';
   import { modal } from '../store/modal.ts';
-  export let show: boolean = false;
+  export let show: boolean = false
+  $: show = $modal;
   const close = () => modal.set(false);
 </script>
 
@@ -12,7 +13,6 @@
       <p>Backend URL:</p>
       <SmallField style="width: 100%!important"   bind:value={$backend} content={$backend} placeholder="URL"/>
     </div>
-
   </div>
 {/if}
 
