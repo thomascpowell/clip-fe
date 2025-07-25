@@ -4,11 +4,12 @@
   import LinkField from "../lib/LinkField.svelte"
   import SmallField from "../lib/SmallField.svelte"
   import OptionsButton from "../lib/OptionsButton.svelte"
-  import Toast from "../lib/Toast.svelte"
+  import { status } from '../store/status.ts';
+  import { loading } from '../store/loading.ts';
 
   import { postJob } from "../api/post.ts"
   import { waitForVideo } from "../api/get.ts"
-  import type { JobRequest, JobStatus, JobResponse } from "../api/types";
+  import type { JobStatus, JobResponse } from "../api/types";
 
   // dropdown options
   const volumeOptions = ["0.0", "0.5", "1.0", "1.5", "2"];
@@ -16,7 +17,6 @@
 
   // ui state
   let showOptions = false
-  let loading = false
 
   // job data
 	let url = '';
@@ -28,10 +28,9 @@
   // status info
 	let jobId = '';
   let downloadUrl = ''
-  let latestRes: JobResponse | JobStatus = {}
 
   async function handleSubmit() {
-    loading = true;
+    loading.set(true);
     const postRes = await postJob({
       url,
       format,
@@ -39,16 +38,16 @@
       startTime,
       endTime
     });
-    latestRes = postRes;
+    status.set({ message: postRes.message, error: postRes.error });
     if (!postRes.id) {
-      loading = false;
+      loading.set(false);
       return
     }
     jobId = postRes.id;
     const statusRes = await waitForVideo(jobId);
-    latestRes = statusRes;
+    status.set({ message: statusRes.message, error: statusRes.error });
     if (!statusRes.url) {
-      loading = false;
+      loading.set(false);
       return
     }
     downloadUrl = statusRes.url
@@ -60,7 +59,6 @@
 </script>
 
 
-<Toast res={latestRes} />
 <form on:submit|preventDefault={handleSubmit}>
   <LinkField bind:value={url} placeholder="URL"/>
   <div class="options">
