@@ -5,11 +5,7 @@
 <div class="top">
   <p>[clip]</p>
   <span>
-<<<<<<< HEAD
-=======
     <button on:click={() => modal.update(value => !value)}>[settings]</button>
-    <a href="https://thomascpowell.com">[web]</a>
->>>>>>> refs/remotes/origin/main
     <a href="https://github.com/thomascpowell/clip">[repo]</a>
     <a href="https://thomascpowell.com">[web]</a>
   </span>
