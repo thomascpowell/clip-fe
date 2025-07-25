@@ -9,6 +9,7 @@
   font: inherit;
   color: inherit;
   vertical-align: baseline;
+  z-index: 0;
 }
 
 input:placeholder {

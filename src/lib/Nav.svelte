@@ -1,11 +1,19 @@
-<div>
+<script lang="ts">
+  import { modal } from '../store/modal.ts';
+</script>
+
+<div class="top">
   <p>[clip]</p>
   <span>
+<<<<<<< HEAD
+=======
+    <button on:click={() => modal.update(value => !value)}>[settings]</button>
+    <a href="https://thomascpowell.com">[web]</a>
+>>>>>>> refs/remotes/origin/main
     <a href="https://github.com/thomascpowell/clip">[repo]</a>
     <a href="https://thomascpowell.com">[web]</a>
   </span>
 </div>
-
 
 <style>
   div {
@@ -15,12 +23,14 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    top: 0;
     color: var(--text);
     left: 0;
     right: 0;
   }
-  a {
+  .top {
+    top: 0;
+  }
+  a, button {
     color: var(--text2);
     text-decoration: none;
   }
