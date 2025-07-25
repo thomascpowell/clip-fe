@@ -8,7 +8,7 @@ async function getStatus(id: string): Promise<JobStatus> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
   try {
-    res = await fetch(`//${url}/status/${id}`, {
+    res = await fetch(`${url}/status/${id}`, {
       method: "GET",
       signal: controller.signal
     });

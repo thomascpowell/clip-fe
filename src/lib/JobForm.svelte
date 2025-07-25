@@ -6,10 +6,8 @@
   import OptionsButton from "../lib/OptionsButton.svelte"
   import { status } from '../store/status.ts';
   import { loading } from '../store/loading.ts';
-
   import { postJob } from "../api/post.ts"
   import { waitForVideo } from "../api/get.ts"
-  import type { JobStatus, JobResponse } from "../api/types";
 
   // dropdown options
   const volumeOptions = ["0.0", "0.5", "1.0", "1.5", "2"];
@@ -69,7 +67,7 @@
   {#if showOptions}
     <div class="options">
       <SmallField bind:value={startTime} placeholder="start time"/>
-      <SmallField bind:value={endTime} placeholder="end time"/>
+      <SmallField bind:value={endTime} placeholder="end time"/>job
       <Dropdown
         label="volume"
         options={volumeOptions}

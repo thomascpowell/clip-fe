@@ -4,7 +4,7 @@
 </script>
 
 
-<div>
+<div {...$$restProps}>
   <input
     placeholder={placeholder}
     bind:value
